@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:twittify_mobile/login.dart';
+import 'package:twittify_mobile/posts.dart';
 import 'package:twittify_mobile/register.dart';
 import 'start.dart';
 
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/start': (context) => Start(),
         '/login': (context) => Login(),
-        '/register': (context) => Register()
+        '/register': (context) => Register(),
+        '/posts': (context) => Posts()
       },
     );
   }

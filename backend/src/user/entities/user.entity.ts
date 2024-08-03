@@ -1,22 +1,42 @@
-import { Entity, Column, PrimaryColumn, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity()
+export enum ProviderType {
+  GOOGLE = 'google',
+  NORMAL = 'normal',
+}
+
+@Entity('users')
 export class User {
-  @PrimaryColumn({ generated: 'uuid' })
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   username: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
-  @Column({ select: false })
+  @Column({ select: false, nullable: true })
   password: string;
 
+  @Column({ type: 'enum', enum: ProviderType })
+  provider: ProviderType;
+
+  @Column({ nullable: true })
+  picture: string;
+
   @CreateDateColumn()
-  created_on: Date;
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
 }

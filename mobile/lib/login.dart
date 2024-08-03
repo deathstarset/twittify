@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twittify_mobile/posts.dart';
 
 class Login extends StatelessWidget {
   @override
@@ -56,7 +57,10 @@ class Login extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Posts()));
+                      },
                       style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.only(top: 16, bottom: 16),
                           backgroundColor: Colors.black,
